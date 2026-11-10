@@ -1,0 +1,34 @@
+{
+  // =========================================================================
+  // Waybar Module Definitions: Internal & External Monitor Brightness
+  // =========================================================================
+
+  // Laptop / Internal Display Backlight (Kernel ACPI sysfs via brightnessctl)
+  "backlight": {
+    "interval": 2,
+    "align": 0,
+    "rotate": 0,
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    // Alternative single icon: "󰌢 {percent}%"
+    "tooltip-format": "Laptop Screen: {percent}%",
+    "on-scroll-up": "hypr-brightness.sh --int-inc",
+    "on-scroll-down": "hypr-brightness.sh --int-dec",
+    "smooth-scrolling-threshold": 1
+  },
+
+  // External Monitor Brightness (KDE-style Layer-Shell GPU Dimmer)
+  // Automatically hides when external monitor is unplugged or turned off!
+  "custom/backlight-ext": {
+    "format": "󰍹 {}",
+    "exec": "hypr-brightness.sh --ext-waybar",
+    "return-type": "json",
+    "interval": 2,
+    "signal": 8,
+    "tooltip": true,
+    "hide-empty-text": true,
+    "on-scroll-up": "hypr-brightness.sh --ext-inc",
+    "on-scroll-down": "hypr-brightness.sh --ext-dec",
+    "smooth-scrolling-threshold": 1
+  }
+}

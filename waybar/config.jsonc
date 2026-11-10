@@ -1,0 +1,34 @@
+// =============================================================================
+// Waybar Module Configuration for External Monitor Brightness Control Widget
+// =============================================================================
+// Add "custom/ext-backlight" to your "modules-left", "modules-center", or "modules-right"
+// array in your main Waybar config file (~/.config/waybar/config.jsonc).
+// =============================================================================
+
+{
+  "custom/ext-backlight": {
+    "format": "󰍹 {}",
+    "exec": "hypr-brightness.sh --ext-waybar",
+    "return-type": "json",
+    "interval": 2,
+    "signal": 8,
+    "tooltip": true,
+    "hide-empty-text": true,
+    "on-scroll-up": "hypr-brightness.sh --ext-inc 2",
+    "on-scroll-down": "hypr-brightness.sh --ext-dec 2",
+    "on-click": "hypr-brightness.sh --toggle-night",
+    "on-click-right": "hypr-brightness.sh --ext-set 100",
+    "smooth-scrolling-threshold": 1
+  },
+
+  // Internal laptop screen backlight (for comparison or paired setup)
+  "backlight#internal": {
+    "device": "amdgpu_bl2",
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "tooltip-format": "Laptop Display: {percent}%",
+    "on-scroll-up": "hypr-brightness.sh --int-inc 2",
+    "on-scroll-down": "hypr-brightness.sh --int-dec 2",
+    "smooth-scrolling-threshold": 1
+  }
+}
