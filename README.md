@@ -73,8 +73,8 @@ sudo dnf install gtk-layer-shell python3-gobject python3-cairo socat jq brightne
 Clone the repository and run `install.sh`:
 
 ```bash
-git clone https://github.com/Additional-Monitor-Brightness-Control-Widget.git
-cd Additional-Monitor-Brightness-Control-Widget
+git clone https://github.com/BlueDragon320/Additional-Monitor-Brithtness-Control-Widget.git
+cd Additional-Monitor-Brithtness-Control-Widget
 ./install.sh
 ```
 
